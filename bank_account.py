@@ -8,17 +8,20 @@ class BankAccount:
     def deposit(self, amount):
         if amount <= 0:
             print("Deposit amount must be greater than zero.")
-        else:
-            self.balance += amount
-            print(f"GHS {amount:.2f} deposited successfully.😊")
-            print(f"New Balance: GHS {self.balance:.2f}")
+            return
+
+        self.balance += amount
+        print(f"GHS {amount:.2f} deposited successfully.😊")
+        print(f"New Balance: GHS {self.balance:.2f}")
 
     # Withdraw money
     def withdraw(self, amount):
         if amount <= 0:
             print("Withdrawal amount must be greater than zero.")
+            return
         elif amount > self.balance:
             print(f"Transaction failed! {self.name} has insufficient funds.😔")
+            return
         else:
             self.balance -= amount
             print(f"GHS {amount:.2f} withdrawn successfully.😊")
